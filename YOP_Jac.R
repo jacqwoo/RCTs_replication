@@ -14,12 +14,13 @@ attach(yop)
 
 ##This replicates Table 9, bizassets (full sample)
 # Model with interaction effects
-fit_int <- lm_robust(bizasset_val_real_p99_e~.,data=subset(yop,select=c(bizasset_val_real_p99_e, assigned, e2, assigned_e2, female, female_e2, age, age_2, age_3, urban, ind_found_b, risk_aversion,
-                                                                    lowskill7da_zero, lowbus7da_zero, skilledtrade7da_zero, highskill7da_zero, acto7da_zero, aghours7da_zero, chores7da_zero, zero_hours, nonag_dummy, emplvoc, inschool,
-                                                                    admin_cost_us, groupsize_est_e, grantsize_pp_US_est3, group_existed, group_age, ingroup_hetero, ingroup_dynamic, grp_leader, grp_chair, avgdisteduc,
-                                                                    D_1, D_2, D_3, D_4, D_5, D_6, D_7, D_8, D_9, D_10, D_11, D_12, D_13,
-                                                                    A_emplvoc, S_K, A_S_K, S_H, A_S_H, S_P_m, A_S_P_m)),
-                 weights=w_sampling_e,clusters=partid)
+fit_int <- lm_robust(bizasset_val_real_p99_e~.,data=subset(yop,select=c(bizasset_val_real_p99_e, assigned, e2, assigned_e2, female, female_e2, age, age_2, age_3, urban, 
+                                                                        ind_found_b, risk_aversion,lowskill7da_zero, lowbus7da_zero, skilledtrade7da_zero, highskill7da_zero, 
+                                                                        acto7da_zero, aghours7da_zero, chores7da_zero, zero_hours, nonag_dummy, emplvoc, inschool,
+                                                                        admin_cost_us, groupsize_est_e, grantsize_pp_US_est3, group_existed, group_age, ingroup_hetero, 
+                                                                        ingroup_dynamic, grp_leader, grp_chair, avgdisteduc,D_1, D_2, D_3, D_4, D_5, D_6, D_7, D_8, D_9, 
+                                                                        D_10, D_11, D_12, D_13,A_emplvoc, S_K, A_S_K, S_H, A_S_H, S_P_m, A_S_P_m) 
+                                                           weights=w_sampling_e, clusters=partid)
 summary(fit_int)
 tidy_fit_int <- tidy(fit_int)
 write.csv(tidy_fit_int,"tidy_fit_int.csv")
